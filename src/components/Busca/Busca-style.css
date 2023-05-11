@@ -1,0 +1,35 @@
+.content{
+    background-color: rgb(228, 228, 228);
+}
+
+.titulo-nome{
+    text-align: center;
+}
+
+.info-perfil1{
+    font-size: 12px;
+    text-align: center;
+    background-color: rgb(174, 174, 174);
+    width: 93px;
+    border-radius: 3%;
+}
+
+.info-perfil2{
+    font-size: 12px;
+    text-align: center;
+    background-color: rgb(174, 174, 174);
+    width: 93px;
+    border-radius: 3%;
+}
+
+.info-perfil3{
+    font-size: 12px;
+    text-align: center;
+    background-color: rgb(174, 174, 174);
+    width: 93px;
+    border-radius: 3%;
+}
+
+b{
+    font-size: 15px;
+}
