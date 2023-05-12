@@ -1,35 +1,46 @@
 .content{
     background-color: rgb(228, 228, 228);
+    height: 530px;
 }
 
 .titulo-nome{
     text-align: center;
 }
 
-.info-perfil1{
+.bio{
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.update-perfil{
+   
+    text-align: center;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.info-perfil{
     font-size: 12px;
     text-align: center;
-    background-color: rgb(174, 174, 174);
+ 
     width: 93px;
     border-radius: 3%;
 }
 
-.info-perfil2{
-    font-size: 12px;
-    text-align: center;
-    background-color: rgb(174, 174, 174);
-    width: 93px;
-    border-radius: 3%;
-}
-
-.info-perfil3{
-    font-size: 12px;
-    text-align: center;
-    background-color: rgb(174, 174, 174);
-    width: 93px;
-    border-radius: 3%;
-}
 
 b{
     font-size: 15px;
+}
+
+
+
+.scroll{
+    overflow-y: scroll;
+    height: 35%;
+}
+
+.repos-button{
+    border-radius: 15px;
+    height: 10px;
 }
