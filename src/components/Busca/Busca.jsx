@@ -196,7 +196,7 @@ export function Busca() {
                 </p>
                 <br />
                 <p>
-                  <GraphLanguage data={data} repo={selectedRepo} />
+                  <GraphLanguage dono={userName} repo={repo.name}/>
                 </p>
                 <br />
                 <br />
