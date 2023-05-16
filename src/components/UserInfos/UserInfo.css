@@ -1,6 +1,8 @@
 .content{
     background-color: rgb(228, 228, 228);
-    height: 530px;
+    height: 550px;
+    margin-top: 3%;
+    justify-content: space-around;
 }
 
 .titulo-nome{
@@ -23,7 +25,7 @@
 .info-perfil{
     font-size: 12px;
     text-align: center;
- 
+    padding-top: 20%;
     width: 93px;
     border-radius: 3%;
 }
@@ -37,7 +39,7 @@ b{
 
 .scroll{
     overflow-y: scroll;
-    height: 35%;
+    height: 100%;
 }
 
 .repos-button{
