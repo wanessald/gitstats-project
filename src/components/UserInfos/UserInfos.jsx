@@ -132,49 +132,48 @@ export function UserInfos() {
               </Col>
             </Row>
           </Container>
-          <Container className="infos-repos p-1">
-            {repos.map((repo) => {
+
+
+          
+          {repos.map((repo) => {
               if (repo.id === selectedRepo) {
                 return (
-                  <Container
-                    key={repo.id}
-                    style={{
-                      marginTop: "30px",
-                      backgroundColor: "lightgray",
-                      padding: "5%",
-                    }}
-                  >
-                    <h1>{repo.name}</h1>
-
-                    <p>
-                      Data de criação:{" "}
+                  <>
+                  <Container className="content-repos">
+                  <Row className="pt-2">
+                    <Col md={4}>
+                            <div className="info-repo">
+                             
+                              <h4>{repo.name}</h4>
+                              
+                            </div>
+                          </Col>
+                          <Col md={3}>
+                            <div className="info-repo">
+                              <p className="repo-p">
+                                <b> Data de criação:{" "}
                       {Intl.DateTimeFormat("pt-br").format(
                         new Date(repo.created_at)
-                      )}{" "}
-                    </p>
-                    {repo.language? (
-                       <p>Linguagem: {repo.language}</p>
+                      )}{" "}</b>
+                                
+                              </p>
+                            </div>
+                          </Col>
+                          <Col md={3}>
+                            <div className="info-repo">
+                              <p className="repo-p">
+                                <b> {repo.language? (
+                       <p>Linguagem {repo.language}</p>
                       ) : (
-                        <p>Esse Repositório ainda não contém linguagens.</p>
-                      )}
-                      
-                      {repo.description ? (
-                        <p>Descrição do Repositório: {repo.description}</p>
-                      ) : (
-                        <p>Esse Repositório não contém descrição.</p>
-                      )}
-                  
-                    <br />
-                      <GraphLanguage dono={userName} repo={repo.name} />
-                    <br />
-                    <ContributorsChart dono={userName} repo={repo.name}/>
-                    <br />
-                    <Forks dono={userName} repo={repo.name}/>
-                    <br />
-
-                    <Button
-                      style={{ width: "25%" }}
-                      variant="primary"
+                        <p>Não contém linguagens.</p>
+                      )}</b>
+                              </p>
+                            </div>
+                          </Col>
+                        <Col md={2}>
+                          <div className="button-github">
+                          <Button
+                      className="btn-light mr-3"
                       target="_blank"
                       href={repo.html_url}
                     >
@@ -190,13 +189,53 @@ export function UserInfos() {
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
                       </svg>
                     </Button>
+                          </div>
+                      
+                        </Col>
+                    </Row>
                   </Container>
+                  <Container
+                    key={repo.id}
+                    className="graphcs-repo"
+                   >
+                    <Row>
+                    <Col md={8}>
+                    <div className="desc-repo">
+                    {repo.description ? (
+                        <p className="repo-desc">Descrição do Repositório: {repo.description}</p>
+                      ) : (
+                        <p className="repo-desc pt-2">Esse Repositório não contém descrição.</p>
+                      )}
+                    </div>
+                    <Col>
+                    <ContributorsChart dono={userName} repo={repo.name}/>
+                    </Col>
+                    <Col>
+                    <div className="testando1">
+                    <Forks dono={userName} repo={repo.name}/>
+                    </div>
+                    </Col>
+                    </Col>
+                      <Col md={4}>
+                     
+                      <GraphLanguage dono={userName} repo={repo.name} />
+                    
+                     
+                      </Col>
+                     
+                    </Row>
+           
+
+    
+                  </Container>
+                  </>
                 );
               } else {
                 return null;
               }
             })}
-          </Container>
+         
+      
         </>
       )}
     </>

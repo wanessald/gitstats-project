@@ -1,5 +1,6 @@
 .content{
-    background-color: rgb(228, 228, 228);
+    border-radius: 15px;
+    background-color: #1E1E1E;
     height: 550px;
     margin-top: 3%;
     justify-content: space-around;
@@ -45,4 +46,103 @@ b{
 .repos-button{
     border-radius: 15px;
     height: 10px;
+}
+
+.content-repos{
+    border-radius: 15px;
+    background-color: #1E1E1E;
+    height: 15%;
+    margin-top: 2%;
+    justify-content: space-around;
+}
+
+.info-repo{
+    text-align: center;
+    color: aliceblue;
+}
+
+.desc-repo{
+    background-color: #1E1E1E;
+    border-radius: 15px;
+    padding: 1%;
+    margin-bottom: 2%;
+    width: 100%;
+}
+
+.btn-custom {
+  
+ 
+    background-color: green;
+      
+     
+    /* outras propriedades de estilo opcionais */
+      
+     
+    color: white;
+    }
+    
+
+.repo-desc{
+    color: aliceblue;
+    text-align: justify;
+}
+.repo-p{
+    size: 25px;
+    padding-top: 2%;
+    color: aliceblue;
+}
+
+.graphcs-repo{
+    margin-top: 2%;
+    
+
+}
+
+
+
+.graph-language{
+    height: 100%;
+    padding: 5%;
+    width: 100%;
+    border: solid 2px black;
+    border-radius: 15px;
+    background-color: #1E1E1E;
+    ;
+  
+}
+
+.titulo-graph{
+    padding-top: 5%;
+    text-align: center;
+    color: aliceblue;
+}
+
+.owner-graph{
+    text-decoration: underline;
+    font-style: italic;
+    padding-top: 10%;
+    color: aliceblue;
+}
+
+.sub-graph{
+    text-align: center;
+    font-style: italic;
+    color: aliceblue;
+}
+
+.Doughnut{
+    height: 300px;
+    
+}
+
+.testando{
+    height: auto;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.testando1{
+    height: 245px;
+    width: 100%;
+    background-color: rgb(236, 0, 0);
 }
