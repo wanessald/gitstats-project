@@ -5,6 +5,7 @@ import axios from "axios";
 import { GraphLanguage } from "../GraphLanguage/GraphLanguage";
 import "./UserInfo.css";
 import { ContributorsChart } from "../Contribuições/Contribuições";
+import { Forks } from "../Forks/Forks";
 
 export function UserInfos() {
   const { userName } = useParams();
@@ -167,6 +168,8 @@ export function UserInfos() {
                       <GraphLanguage dono={userName} repo={repo.name} />
                     <br />
                     <ContributorsChart dono={userName} repo={repo.name}/>
+                    <br />
+                    <Forks dono={userName} repo={repo.name}/>
                     <br />
 
                     <Button
