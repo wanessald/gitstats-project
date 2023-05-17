@@ -4,6 +4,7 @@ import { Card, Col, Row, Container, Button } from "react-bootstrap";
 import axios from "axios";
 import { GraphLanguage } from "../GraphLanguage/GraphLanguage";
 import "./UserInfo.css";
+import { ContributorsChart } from "../Contribuições/Contribuições";
 
 export function UserInfos() {
   const { userName } = useParams();
@@ -163,10 +164,9 @@ export function UserInfos() {
                       )}
                   
                     <br />
-                   
                       <GraphLanguage dono={userName} repo={repo.name} />
-                    
                     <br />
+                    <ContributorsChart dono={userName} repo={repo.name}/>
                     <br />
 
                     <Button
