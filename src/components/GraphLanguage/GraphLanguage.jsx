@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import axios from "axios";
 import "../UserInfos/UserInfo.css";
 
-
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const data = {
@@ -18,20 +17,18 @@ export const data = {
       label: "# of Votes",
       data: [12, 19, 3, 5, 2, 3],
       backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
+        "rgba(  0 , 0 , 255)",
+        "rgba( 255 , 0 , 255)",
+        "rgba( 255 , 255 , 0)",
+        " rgba( 255 , 128 , 0)",
+        " rgba(0 , 255 , 0)",
       ],
       borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
+        "rgba(  0 , 0 , 255)",
+        "rgba( 255 , 0 , 255)",
+        "rgba( 255 , 255 , 0)",
+        " rgba( 255 , 128 , 0)",
+        " rgba(0 , 255 , 0)",
       ],
       borderWidth: 1,
     },
@@ -54,20 +51,18 @@ export function GraphLanguage(parametros) {
               label: "# of Votes",
               data: Object.values(response.data),
               backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
+                "rgba(  0 , 0 , 255)",
+                "rgba( 255 , 0 , 255)",
+                "rgba( 255 , 255 , 0)",
+                " rgba( 255 , 128 , 0)",
+                " rgba(0 , 255 , 0)",
               ],
               borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
+                "rgba(  0 , 0 , 255)",
+                "rgba( 255 , 0 , 255)",
+                "rgba( 255 , 255 , 0)",
+                " rgba( 255 , 128 , 0)",
+                " rgba(0 , 255 , 0)",
               ],
               borderWidth: 1,
             },
@@ -79,10 +74,14 @@ export function GraphLanguage(parametros) {
         console.log(error);
       });
   }, [parametros.dono, parametros.repo]);
-    return (
-        <div style={{height: 300}}>
-          <h4>Linguagem mais usada {parametros.dono} {parametros.repo}</h4>
-          <Doughnut data={graphData} />
-        </div>
-    );
+  return (
+    <div className="graph-language">
+      <h4 className="titulo-graph">Linguagem mais usada</h4>
+      <h6 className="sub-graph"> {parametros.repo}</h6>
+      <br />
+      <Doughnut className="Doughnut" data={graphData} />
+      <br />
+      <p className="owner-graph"> {parametros.dono}</p>
+    </div>
+  );
 }
