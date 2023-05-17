@@ -217,13 +217,14 @@ export function UserInfos() {
                         <Col>
                           <div className="testando1">
                             <Forks dono={userName} repo={repo.name} />
+                            <GithubStars username={userName} repo={repo.name} />
                           </div>
                         </Col>
                       </Col>
                       <Col md={4}>
                         <GraphLanguage dono={userName} repo={repo.name} />
 
-                        <GithubStars username={userName} repo={repo.name} />
+                     
                       </Col>
                     </Row>
                   </Container>

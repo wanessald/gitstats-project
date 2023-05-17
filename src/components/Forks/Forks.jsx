@@ -16,5 +16,5 @@ export function Forks({ dono, repo }) {
       });
   }, [dono, repo]);
 
-  return <p>Número de forks: {forkCount}</p>;
+  return <p style={{backgroundColor:"grey", color:"black"}}>Número de forks: {forkCount}</p>;
 }
