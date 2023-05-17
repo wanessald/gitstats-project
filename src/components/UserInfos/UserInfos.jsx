@@ -4,14 +4,15 @@ import { Card, Col, Row, Container, Button } from "react-bootstrap";
 import axios from "axios";
 import { GraphLanguage } from "../GraphLanguage/GraphLanguage";
 import "./UserInfo.css";
-import GithubStars from "../../components/GithubStars/GithubStars";
+import { ContributorsChart } from "../Contribuições/Contribuições";
+import { Forks } from "../Forks/Forks";
 
 export function UserInfos() {
   const { userName } = useParams();
   const [userData, setUserData] = useState(null);
   const [repos, setRepos] = useState([]);
   const [selectedRepo, setSelectedRepo] = useState(null);
-  
+
   const handleRepoClick = (id) => {
     setSelectedRepo(id);
   };
@@ -47,13 +48,13 @@ export function UserInfos() {
             <Row>
               <Col md={6}>
                 <div>
-                  <Card style={{ width: "22rem", height: "500px" }}>
+                  <Card style={{ width: "22rem" ,height:"500px" }} >
                     <Link to={userData.html_url} target="_blank">
                       <Card.Img
                         variant="top"
                         style={{
                           width: "70%",
-
+                         
                           marginLeft: "15%",
                           marginTop: "5%",
                           borderRadius: "50%",
@@ -69,11 +70,9 @@ export function UserInfos() {
                       {userData.bio ? (
                         <p className="bio">"{userData.bio}"</p>
                       ) : (
-                        <p className="bio">
-                          <i>sem biografia</i>
-                        </p>
+                        <p className="bio"><i>sem biografia</i></p>
                       )}
-
+                      
                       <Card.Text>
                         <Row>
                           <Col md={4}>
@@ -117,7 +116,7 @@ export function UserInfos() {
               </Col>
 
               <Col md={6}>
-                <div className="scroll mb-3" style={{ height: "500px" }}>
+                <div className="scroll mb-3" style={{height:"500px"}}>
                   {repos.map((repo) => (
                     <div className="box">
                       <Button
@@ -155,34 +154,26 @@ export function UserInfos() {
                                 <b> Data de criação:{" "}
                       {Intl.DateTimeFormat("pt-br").format(
                         new Date(repo.created_at)
-                      )}{" "}
-                    </p>
-                    {repo.language ? (
-                      <p>Linguagem: {repo.language}</p>
-                    ) : (
-                      <p>Esse Repositório ainda não contém linguagens.</p>
-                    )}
-
-                    {repo.description ? (
-                      <p>Descrição do Repositório: {repo.description}</p>
-                    ) : (
-                      <p>Esse Repositório não contém descrição.</p>
-                    )}
-
-                    <br />
-
-                    
-                    <Row>
-        <Col><GraphLanguage dono={userName} repo={repo.name} /></Col>
-        <Col><GithubStars username={userName} repo={repo.name} /></Col>
-      </Row>
-
-                    <br />
-                    <br />
-
-                    <Button
-                      style={{ width: "25%" }}
-                      variant="primary"
+                      )}{" "}</b>
+                                
+                              </p>
+                            </div>
+                          </Col>
+                          <Col md={3}>
+                            <div className="info-repo">
+                              <p className="repo-p">
+                                <b> {repo.language? (
+                       <p>Linguagem {repo.language}</p>
+                      ) : (
+                        <p>Não contém linguagens.</p>
+                      )}</b>
+                              </p>
+                            </div>
+                          </Col>
+                        <Col md={2}>
+                          <div className="button-github">
+                          <Button
+                      className="btn-light mr-3"
                       target="_blank"
                       href={repo.html_url}
                     >
