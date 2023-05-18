@@ -15,13 +15,13 @@ export function BuscaUser() {
   };
 
   return (
-    <div className="container-app">
+    <div className="container-app" style={{backgroundColor:"#181719"}}>
       <div className="container">
         <header className="header-top">
           <h1>Git Stats</h1>
         </header>
 
-        <main>
+        <main style={{backgroundColor:"#181719"}}>
           <div className="form">
             <Form>
               <InputGroup className="mb-3">
