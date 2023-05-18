@@ -1,9 +1,12 @@
 .content{
     background-color: #1E1E1E;
     border-radius: 15px;
-    height: 750px;
-    margin-top: 3%;
+    height: 650px;
+    margin-top: 1%;
 }
+
+
+
 
 .titulo-nome{
     text-align: center;
@@ -66,9 +69,9 @@ b{
     display: flex;
     flex-direction: column;
     background-color: #1E1E1E;
-    height: 77%;
+    height: 85%;
     padding: auto;
-    margin-top: 3%;
+
 }
 
 .btn-div{
@@ -96,9 +99,9 @@ b{
 .content-repos{
     border-radius: 15px;
     background-color: #1E1E1E;
-    height: 15%;
-    margin-top: 2%;
+    margin-top: 1%;
     justify-content: space-around;
+  
 }
 
 .info-repo{
@@ -137,11 +140,7 @@ b{
     color: aliceblue;
 }
 
-.graphcs-repo{
-    margin-top: 2%;
-   
 
-}
 
 
 
