@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
+import "./Contribuicoes.css";
 import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-  } from 'chart.js';
-  
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-  );
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 export function ContributorsChart({ dono, repo }) {
   const [contributorsData, setContributorsData] = useState(null);
@@ -34,14 +35,20 @@ export function ContributorsChart({ dono, repo }) {
           labels.push(contributor.login);
           dataset.push(contributor.contributions);
         }
-        
+
         const data = {
           labels: labels,
           datasets: [
             {
-              label: "Contributions",
+              label: "Contribuições",
               data: dataset,
-              backgroundColor: "rgba(54, 162, 235, 0.6)",
+              backgroundColor: [
+                "rgba(  0 , 0 , 255)",
+                "rgba( 255 , 0 , 255)",
+                "rgba( 255 , 255 , 0)",
+                " rgba( 255 , 128 , 0)",
+                " rgba(0 , 255 , 0)",
+              ],
             },
           ],
         };
@@ -57,22 +64,23 @@ export function ContributorsChart({ dono, repo }) {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
+        position: "top",
       },
       title: {
         display: true,
-        text: 'Contribuidores e Contribuições',
+        text: "",
       },
     },
   };
 
   return (
-    <div style={{ height: 300 }}>
-
+    <div className="contrib-graph">
+      <h4 className="titulo-graph">Contribuidores e Contribuições</h4>
       {contributorsData ? (
+        
         <Bar data={contributorsData} options={options} />
       ) : (
-        <p>Loading contributors data...</p>
+        <p>Esse Repositório não contém dados de contribuições...</p>
       )}
     </div>
   );

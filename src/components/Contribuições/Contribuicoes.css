@@ -1,0 +1,19 @@
+.contrib-graph{
+    background-color: #1e1e1e;
+    padding: 2%;
+    border-radius: 15px;
+    margin-bottom: 2%;
+    align-items: center;
+}
+
+p{
+    padding-top: 2% ;
+    color: aliceblue;
+}
+
+
+.titulo-graph{
+    padding-top: 5%;
+    text-align: center;
+    color: aliceblue;
+}
