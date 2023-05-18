@@ -68,8 +68,9 @@ export function UserInfos() {
                   <Card
                     className="card d-flex"
                     style={{
+                      borderRadius:"15px",
                       width: "22rem",
-                      height: "29rem",
+                      height: "32rem",
                       marginLeft: "15%",
                       backgroundColor: "#37393B",
                     }}
@@ -164,29 +165,31 @@ export function UserInfos() {
             if (repo.id === selectedRepo) {
               return (
                 <>
-                  <Container className="content-repos">
+                  <Container className="content-repos ">
                     <Row className="pt-2">
                       <Col md={4}>
-                        <div className="info-repo">
+                        <div className="info-repo pt-1">
                           <h4>{repo.name}</h4>
                         </div>
                       </Col>
                       <Col md={3}>
                         <div className="info-repo">
-                          <p className="repo-p">
+                          <p className="repo-p pt-2">
                             <b>
-                              {" "}
+                            {" "}
                               Data de criação:{" "}
                               {Intl.DateTimeFormat("pt-br").format(
                                 new Date(repo.created_at)
                               )}{" "}
                             </b>
-                          </p>
+                             
+                            </p>
+                         
                         </div>
                       </Col>
                       <Col md={3}>
                         <div className="info-repo">
-                          <p className="repo-p">
+                          <p className="repo-p pt-1">
                             <b>
                               {" "}
                               {repo.language ? (
@@ -221,7 +224,7 @@ export function UserInfos() {
                       </Col>
                     </Row>
                   </Container>
-                  <Container key={repo.id} className="graphcs-repo">
+                  <Container key={repo.id} className="content" style={{height:"auto", backgroundColor:"aliceblue", padding:"0%"}}>
                     <Row>
                       <Col md={8}>
                         <div className="desc-repo">
