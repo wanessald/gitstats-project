@@ -7,6 +7,7 @@ import "./UserInfo.css";
 import { ContributorsChart } from "../Contribuições/Contribuições";
 import { Forks } from "../Forks/Forks";
 import GithubStars from "../../components/GithubStars/GithubStars";
+import { ArrowLeft } from 'react-bootstrap-icons';
 
 export function UserInfos() {
   const { userName } = useParams();
@@ -46,10 +47,15 @@ export function UserInfos() {
       {userData && (
         <>
           <Container className="content p-4">
+          <Button variant="primary" style={{ backgroundColor: '#1E1E1E', border: 'none' }}>
+      <Link to="/">
+        <ArrowLeft color='#D9D9D9' size={35} />
+      </Link>
+    </Button>
             <Row>
               <Col md={6}>
                 <div>
-                  <Card style={{ width: "22rem", height: "500px" }}>
+                  <Card style={{ width: "22rem", height: "455px" }}>
                     <Link to={userData.html_url} target="_blank">
                       <Card.Img
                         variant="top"
