@@ -125,7 +125,7 @@ export function UserInfos() {
               </Col>
 
               <Col md={6}>
-                <div className="scroll mb-3" style={{ height: "500px" }}>
+                <div className="scroll mb-3" style={{ height: "450px" }}>
                   {repos.map((repo) => (
                     <div className="box">
                       <Button
