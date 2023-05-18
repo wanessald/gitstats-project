@@ -46,22 +46,39 @@ export function UserInfos() {
     <>
       {userData && (
         <>
-          <Container className="content p-4">
-          <Button variant="primary" style={{ backgroundColor: '#1E1E1E', border: 'none' }}>
-      <Link to="/">
-        <ArrowLeft color='#D9D9D9' size={35} />
-      </Link>
-    </Button>
-            <Row>
+<Container className="content p-4">
+            <Row className="row-principal">
+              <Row style={{ height: "8%" }}>
+                <Col md={1}>
+                  <div>
+                    <Button
+                      className=""
+                      variant="primary"
+                      style={{ backgroundColor: "#1E1E1E", border: "none" }}
+                    >
+                      <Link to="/">
+                        <ArrowLeft color="#D9D9D9" size={35} />
+                      </Link>
+                    </Button>
+                  </div>
+                </Col>
+              </Row>
               <Col md={6}>
-                <div>
-                  <Card style={{ width: "22rem", height: "455px" }}>
+                <div className="card-align">
+                  <Card
+                    className="card d-flex"
+                    style={{
+                      width: "22rem",
+                      height: "29rem",
+                      marginLeft: "15%",
+                      backgroundColor: "#37393B",
+                    }}
+                  >
                     <Link to={userData.html_url} target="_blank">
                       <Card.Img
                         variant="top"
                         style={{
                           width: "70%",
-
                           marginLeft: "15%",
                           marginTop: "5%",
                           borderRadius: "50%",
@@ -71,7 +88,9 @@ export function UserInfos() {
                     </Link>
 
                     <Card.Body>
-                      <Card.Title style={{ textAlign: "center" }}>
+                      <Card.Title
+                        style={{ textAlign: "center", color: "#fcfcfc" }}
+                      >
                         {userData.name}
                       </Card.Title>
                       {userData.bio ? (
@@ -112,35 +131,34 @@ export function UserInfos() {
                             </div>
                           </Col>
                         </Row>
+                        <p className="update-perfil">
+                          Perfil Atualizado:
+                          {Intl.DateTimeFormat("pt-br").format(
+                            new Date(userData.updated_at)
+                          )}
+                        </p>
                       </Card.Text>
                     </Card.Body>
-                    <p className="update-perfil">
-                      Perfil Atualizado:
-                      {Intl.DateTimeFormat("pt-br").format(
-                        new Date(userData.updated_at)
-                      )}
-                    </p>
                   </Card>
                 </div>
               </Col>
 
-              <Col md={6}>
-                <div className="scroll mb-3" style={{ height: "450px" }}>
+              <Col className="colun-2" md={6}>
+                <div className="scroll">
                   {repos.map((repo) => (
-                    <div className="box">
-                      <Button
-                        className="secondary mt-2"
-                        style={{ width: "90%" }}
-                        onClick={() => handleRepoClick(repo.id)}
-                      >
-                        {repo.name}
-                      </Button>
-                    </div>
+                    <button
+                      style={{ height: 78 }}
+                      className="button-repo"
+                      onClick={() => handleRepoClick(repo.id)}
+                    >
+                      {repo.name}
+                    </button>
                   ))}
                 </div>
               </Col>
             </Row>
           </Container>
+
 
           {repos.map((repo) => {
             if (repo.id === selectedRepo) {
