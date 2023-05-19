@@ -43,7 +43,7 @@ export function UserInfos() {
   }, [userName]);
 
   return (
-    <main style={{backgroundColor:"#151414"}}>
+    <main style={{backgroundColor:"#151414",  paddingBottom:"4%", paddingTop:"3%"}}>
       {userData && (
         <>
 <Container className="content p-4">
