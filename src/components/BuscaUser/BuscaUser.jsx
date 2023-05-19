@@ -21,12 +21,20 @@ export function BuscaUser() {
   };
 
   return (
+    <div>
+    <style>
+      {`
+        body {
+          background-color: #151414;
+        }
+      `}
+    </style>
     
     <div className="container-app" style={{ backgroundColor: "#181719" }}>
       <div className="container">
         <header className="header-top">
           <h1 style={{fontFamily:'Karla'}}>GitStats</h1>
-          <h2>Pesquise por perfis ou repositórios e acompanhe as estatísticas de seus usuários de maneira regular.</h2>
+          <h2>Pesquise por perfis e acompanhe as estatísticas de seus usuários e repositórios de maneira regular.</h2>
         </header>
 
         <main style={{ backgroundColor: "#181719" }}>
@@ -41,12 +49,12 @@ export function BuscaUser() {
                   onKeyDown={handleKeyDown}
                   value={userName}
                 />
-                <Button variant="primary" type="button" style={{ backgroundColor: "#000000" }} onClick={handleSearch}>
+                <Button variant="primary" type="button" style={{ backgroundColor: "#fff" }} onClick={handleSearch}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
-                    fill="currentColor"
+                    fill="#181719"
                     className="bi bi-search"
                     viewBox="0 0 16 16"
                   >
@@ -58,6 +66,7 @@ export function BuscaUser() {
           </div>
         </main>
       </div>
+    </div>
     </div>
   );
 }

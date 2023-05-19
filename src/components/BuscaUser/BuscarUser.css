@@ -5,7 +5,7 @@
     height: 595px;
     left: 80px;
     top: 47px;
-    background: #302f2f;
+    background: #1E1E1E;
     border-radius: 20px;
     transform: translate(16%, -3%);
     background-position: center;
@@ -40,6 +40,7 @@
     left: 210px;
     top: 188px;
     color: #d9d9d9;
+
     font-size: 45px;
   }
   
