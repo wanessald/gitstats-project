@@ -43,7 +43,7 @@ export function UserInfos() {
   }, [userName]);
 
   return (
-    <>
+    <main style={{backgroundColor:"#151414"}}>
       {userData && (
         <>
 <Container className="content p-4">
@@ -224,7 +224,7 @@ export function UserInfos() {
                       </Col>
                     </Row>
                   </Container>
-                  <Container key={repo.id} className="content" style={{height:"auto", backgroundColor:"aliceblue", padding:"0%"}}>
+                  <Container key={repo.id} className="content" style={{height:"auto",backgroundColor:"#151414", marginTop:"1%"}}>
                     <Row>
                       <Col md={8}>
                         <div className="desc-repo">
@@ -239,19 +239,32 @@ export function UserInfos() {
                           )}
                         </div>
                         <Col>
-                          <ContributorsChart dono={userName} repo={repo.name} />
+                        <Row className="mb-3">
+                          <Col>
+                          <GithubStars username={userName} repo={repo.name} />
+                          </Col>
+                          <Col>
+                          <Forks dono={userName} repo={repo.name} />
+                          </Col>
+                          <Col>
+                          <GithubStars username={userName} repo={repo.name} />
+                          </Col>
+                        </Row>
+                         
                         </Col>
                         <Col>
-                          <div className="testando1">
-                            <Forks dono={userName} repo={repo.name} />
-                            <GithubStars username={userName} repo={repo.name} />
-                          </div>
-                        </Col>
+                          <ContributorsChart dono={userName} repo={repo.name} />
+                          </Col>
                       </Col>
                       <Col md={4}>
                         <GraphLanguage dono={userName} repo={repo.name} />
 
                      
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                      <ContributorsChart dono={userName} repo={repo.name} />
                       </Col>
                     </Row>
                   </Container>
@@ -263,6 +276,6 @@ export function UserInfos() {
           })}
         </>
       )}
-    </>
+    </main>
   );
 }

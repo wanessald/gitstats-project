@@ -25,10 +25,10 @@ const GithubStars = ({ username, repo }) => {
   }
 
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card style={{ width: "100%", backgroundColor:"#1E1E1E", borderRadius:"15px" }}>
       <Card.Body>
         {" "}
-        <h4 style={{textAlign:"center"}}>Estrelas</h4>
+        <h4 style={{textAlign:"center", color:"aliceblue"}}>Estrelas</h4>
         <div className="row">
           <div className="col text-center">
            
@@ -40,7 +40,7 @@ const GithubStars = ({ username, repo }) => {
         </div>
         <div className="row">
           <div className="col text-center">
-            <h3>{repos.stargazers_count}</h3>
+            <h3 style={{color:"aliceblue"}}>{repos.stargazers_count}</h3>
           </div>
         </div>
       </Card.Body>
