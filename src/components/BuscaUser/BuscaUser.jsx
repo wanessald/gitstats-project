@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Form, Button, InputGroup } from "react-bootstrap";
+import "./BuscarUser.css";
 
 export function BuscaUser() {
   const [userName, setUserName] = useState("");
@@ -19,18 +20,19 @@ export function BuscaUser() {
     window.location.href = `/perfil/${userName}`;
   };
 
-
   return (
+    
     <div className="container-app" style={{ backgroundColor: "#181719" }}>
       <div className="container">
         <header className="header-top">
-          <h1>Git Stats</h1>
+          <h1 style={{fontFamily:'Karla'}}>GitStats</h1>
+          <h2>Pesquise por perfis ou repositórios e acompanhe as estatísticas de seus usuários de maneira regular.</h2>
         </header>
 
         <main style={{ backgroundColor: "#181719" }}>
           <div className="form">
             <Form>
-              <InputGroup className="mb-3">
+              <InputGroup className="mb-3 busca">
                 <Form.Control
                   type="text"
                   className="input-name-user"
@@ -39,7 +41,7 @@ export function BuscaUser() {
                   onKeyDown={handleKeyDown}
                   value={userName}
                 />
-                <Button variant="primary" type="button" onClick={handleSearch}>
+                <Button variant="primary" type="button" style={{ backgroundColor: "#000000" }} onClick={handleSearch}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
