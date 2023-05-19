@@ -74,11 +74,13 @@ export function ContributorsChart({ dono, repo }) {
   };
 
   return (
-    <div className="contrib-graph">
-      <h4 className="titulo-graph">Contribuidores e Contribuições</h4>
+    <div className="contrib-graph" style={{height:"25rem"}}>
+      
       {contributorsData ? (
-        
-        <Bar data={contributorsData} options={options} />
+        <>
+        <h5 style={{textAlign:"center", color:"aliceblue", marginBottom:"0%"}}>Contribuidores e Contribuições</h5>
+        <Bar style={{height:"94%"}} data={contributorsData} options={options} />
+        </>
       ) : (
         <p>Esse Repositório não contém dados de contribuições...</p>
       )}
