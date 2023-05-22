@@ -23,11 +23,7 @@ export function BuscaUser() {
   return (
     <div>
     <style>
-      {`
-        body {
-          background-color: #151414;
-        }
-      `}
+      {`body {background-color: #151414;}`}
     </style>
     
     <div className="container-app" style={{ backgroundColor: "#181719" }}>
@@ -62,6 +58,11 @@ export function BuscaUser() {
                   </svg>
                 </Button>
               </InputGroup>
+              <div className="link-container">
+                    <a href="https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home" target="_blank" className="link" >
+                      Não tem conta no GitHub? Cadastre-se!
+                    </a>
+                  </div>
             </Form>
           </div>
         </main>

@@ -9,6 +9,7 @@
     border-radius: 20px;
     transform: translate(16%, -3%);
     background-position: center;
+    display: block;
   }
   
   .busca {
@@ -31,6 +32,8 @@
     font-family: 'Karla';
     font-size: 23px;
     line-height: 30px;
+    word-wrap: normal;
+    overflow-wrap: anywhere;
   }
   
   .header-top h1 {
@@ -40,7 +43,19 @@
     left: 210px;
     top: 188px;
     color: #d9d9d9;
-
     font-size: 45px;
+  }
+
+  .link-container  {
+    margin-top: 480px;
+    margin-left: 317px;
+   
+  }
+  .link-container a {
+    color:rgb(80, 80, 80);
+    font-size: 13px;
+  }
+  .link-container a:hover {
+    color: #fff; 
   }
   
