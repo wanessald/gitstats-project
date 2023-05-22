@@ -8,6 +8,7 @@ import { ContributorsChart } from "../Contribuições/Contribuições";
 import { Forks } from "../Forks/Forks";
 import GithubStars from "../../components/GithubStars/GithubStars";
 import { ArrowLeft } from 'react-bootstrap-icons';
+import GithubBranches from "../../components/GithubBranches/GithubBranches";
 
 export function UserInfos() {
   const { userName } = useParams();
@@ -247,7 +248,8 @@ export function UserInfos() {
                           <Forks dono={userName} repo={repo.name} />
                           </Col>
                           <Col>
-                          <GithubStars username={userName} repo={repo.name} />
+                          
+                          <GithubBranches username={userName} repoName={repo.name} />   
                           </Col>
                         </Row>
                          
