@@ -62,6 +62,7 @@ export function ContributorsChart({ dono, repo }) {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",
