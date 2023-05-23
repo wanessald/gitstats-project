@@ -3,9 +3,14 @@ import './App.css';
 import { Root } from "./pages/Root/Root";
 import { UserInfos } from "./components/UserInfos/UserInfos";
 import { BuscaUser } from "./components/BuscaUser/BuscaUser";
+import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
+import './components/ThemeToggle/theme.css';
 
 function App() {
   return (
+      <div>
+        <ThemeToggle />
+
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Root/>}>
@@ -14,6 +19,7 @@ function App() {
       </Route>
     </Routes>
   </BrowserRouter>
+  </div>
   );
 }
 
