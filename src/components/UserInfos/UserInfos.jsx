@@ -53,15 +53,11 @@ export function UserInfos() {
               <Row style={{ height: "8%" }}>
                 <Col md={1}>
                   <div>
-                    <Button
-                      className=""
-                      variant="primary"
-                      style={{ backgroundColor: "#1E1E1E", border: "none" }}
-                    >
+                   
                       <Link to="/">
                         <ArrowLeft color="#D9D9D9" size={35} />
                       </Link>
-                    </Button>
+                  
                   </div>
                 </Col>
               </Row>
