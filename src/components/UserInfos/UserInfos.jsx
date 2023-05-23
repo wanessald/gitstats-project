@@ -9,6 +9,7 @@ import { Forks } from "../Forks/Forks";
 import GithubStars from "../../components/GithubStars/GithubStars";
 import { ArrowLeft } from 'react-bootstrap-icons';
 import GithubBranches from "../../components/GithubBranches/GithubBranches";
+import { InsightChart } from "../LineGraph/LineGraph";
 
 export function UserInfos() {
   const { userName } = useParams();
@@ -260,14 +261,15 @@ export function UserInfos() {
                       </Col>
                       <Col md={4}>
                         <GraphLanguage dono={userName} repo={repo.name} />
-
-                     
+                   
                       </Col>
                     </Row>
                     <Row>
                       <Col>
-                      <ContributorsChart dono={userName} repo={repo.name} />
+                      <InsightChart userName={userName} repo={repo.name} />
                       </Col>
+                    </Row>
+                    <Row>
                     </Row>
                   </Container>
                 </>

@@ -181,3 +181,12 @@ b{
     width: 100%;
     background-color: rgb(236, 0, 0);
 }
+
+.commits-graph{
+    height: 25rem;
+    padding: 5%;
+    margin-bottom: 0.3rem;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #1E1E1E;
+}
