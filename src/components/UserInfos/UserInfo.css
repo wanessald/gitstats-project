@@ -144,6 +144,7 @@ b{
 
 .info-repo{
     padding: 1%;
+    text-align: center;
 }
 
 .desc-repo{
@@ -171,7 +172,7 @@ b{
   .link-repo{
     color:  #fff ;
     font-size: 22px;
-    margin-right: 75%;
+    margin-right: 45%;
   }
   .link-repo:hover {
     color: rgb(80, 80, 80); 

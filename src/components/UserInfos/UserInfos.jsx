@@ -163,7 +163,7 @@ export function UserInfos() {
                 <>
                   <Container className="content-repos ">
                     <Row >
-                    <Col md={10}>
+                    <Col md={4}>
                         <div className="info-repo ">
                           <Link
                             target="_blank"
@@ -193,9 +193,18 @@ export function UserInfos() {
                         </div>
                       </Col>
 
-                   
+                      <Col md={4}>
+                        <div className="info-repo">
+                          <h5 className="repo-p">
+                            Data de Criação: 
+                            {Intl.DateTimeFormat("pt-br").format(
+                              new Date(repo.created_at)
+                            )}
+                          </h5>
+                        </div>
+                      </Col>
                      
-                      <Col md={2}>
+                      <Col md={4}>
                         
                           <ShareInfo owner={userName} repo={repo.name} />
                         
