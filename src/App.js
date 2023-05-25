@@ -1,10 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import './App.css';
 import { Root } from "./pages/Root/Root";
 import { UserInfos } from "./components/UserInfos/UserInfos";
-import { BuscaUser } from "./components/BuscaUser/BuscaUser";
 import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 import './components/ThemeToggle/theme.css';
+import { Home } from "./pages/Home/Home";
 
 export function App() {
   
@@ -15,7 +14,7 @@ export function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Root/>}>
-        <Route path="/" element={<BuscaUser />} />
+        <Route path="/" element={<Home />} />
         <Route path="/perfil/:userName" element={<UserInfos/>} />
       </Route>
     </Routes>
