@@ -17,6 +17,7 @@ export function UserInfos() {
   const [userData, setUserData] = useState(null);
   const [repos, setRepos] = useState([]);
   const [selectedRepo, setSelectedRepo] = useState(null);
+  const [sortedRepos, setSortedRepos] = useState([]);
 
   const handleRepoClick = (id) => {
     setSelectedRepo(id);
@@ -44,6 +45,18 @@ export function UserInfos() {
         console.log(error);
       });
   }, [userName]);
+
+     useEffect(() => {
+        axios
+        .get(`https://api.github.com/users/${userName}/repos?sort=updated`)
+        .then((response) => {
+          const sortedRepos = response.data.sort((a, b) => {
+            return b.updated_at.localeCompare(a.updated_at);
+          });
+          setRepos(sortedRepos);
+      });
+  }, [userName]);
+ 
 
   return (
     <main style={{backgroundColor:"#151414",  paddingBottom:"4%", paddingTop:"3%"}}>
@@ -147,10 +160,11 @@ export function UserInfos() {
                 <div className="scroll">
                   {repos.map((repo) => (
                     <button
+                      title={repo.updated_at.toLocaleString()}
                       style={{ height: 78 }}
                       className="button-repo"
                       onClick={() => handleRepoClick(repo.id)}
-                    >
+                    > 
                       {repo.name}
                     </button>
                   ))}
@@ -175,11 +189,10 @@ export function UserInfos() {
                         <div className="info-repo">
                           <p className="repo-p pt-2">
                             <b>
-                            {" "}
-                              Data de criação:{" "}
+                              Data de criação:
                               {Intl.DateTimeFormat("pt-br").format(
                                 new Date(repo.created_at)
-                              )}{" "}
+                              )}
                             </b>
                              
                             </p>
@@ -207,11 +220,11 @@ export function UserInfos() {
                             target="_blank"
                             href={repo.html_url}
                           >
-                            Abrir no Github
+                            Ir para o Github
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
+                              width="20"
+                              height="20"
                               fill="currentColor"
                               class="bi bi-github"
                               viewBox="0 0 16 16"

@@ -1,16 +1,16 @@
-
-.container-app {
+@media only screen and (max-width: 1366px) {
+  .container-app {
     position: absolute;
-    width: 900px;
     height: 595px;
     left: 80px;
     top: 47px;
-    background: #1E1E1E;
     border-radius: 20px;
     transform: translate(16%, -3%);
     background-position: center;
     display: block;
   }
+
+}
   
   .busca {
     width: 500px !important;
