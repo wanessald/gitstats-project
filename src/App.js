@@ -6,7 +6,8 @@ import { BuscaUser } from "./components/BuscaUser/BuscaUser";
 import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 import './components/ThemeToggle/theme.css';
 
-function App() {
+export function App() {
+  
   return (
       <div>
         <ThemeToggle />
