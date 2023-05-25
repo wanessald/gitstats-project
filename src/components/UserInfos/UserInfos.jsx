@@ -211,7 +211,7 @@ export function UserInfos() {
                       </Col>
                     </Row>
                   </Container>
-                  <Container key={repo.id} className="content" style={{height:"auto",backgroundColor:"#151414", marginTop:"1%"}}>
+                  <Container key={repo.id} className="pt-3">
                     <Row>
                       <Col md={8}>
                         <div className="desc-repo">
@@ -250,7 +250,7 @@ export function UserInfos() {
                    
                       </Col>
                     </Row>
-                    <Row>
+                    <Row className="pt-2">
                       <Col>
                       <ContributorsChart dono={userName} repo={repo.name} />
                       </Col>
