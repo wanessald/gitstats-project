@@ -1,4 +1,4 @@
-import { Colors } from "chart.js";
+
 import { Busca } from "../../components/Busca/Busca";
 
 export function Home() {

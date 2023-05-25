@@ -1,14 +1,36 @@
-
-
 .content{
+
     background-color: #1E1E1E;
     border-radius: 15px;
     height: 650px;
     
 }
 
+.content-dois{
 
+    background-color: #1E1E1E;
+    border-radius: 15px;
+    height:auto;
+    background-color:#151414;
+    margin-top:1%
+    
+}
 
+.fundo{
+    background-color:#151414;
+      padding-bottom:4%;
+     padding-top:3%
+}
+
+.arrow{
+    color: #37393B;
+}
+
+.username-card{
+    padding-top: 2%;
+    text-align: center;
+     color: #fcfcfc
+}
 
 .titulo-nome{
     text-align: center;
@@ -42,7 +64,6 @@ b{
     font-size: 15px;
 }
 
- 
 .row-principal{
     height: 100%;
 }
@@ -64,7 +85,6 @@ b{
     height: 2px;
 }
 
-
 .scroll{
     align-items: center;
     overflow-y: scroll;
@@ -76,9 +96,7 @@ b{
 
 }
 
-.btn-div{
-    background-color: aqua;
-}
+
 
 .button-repo{
     border: 1px solid transparent;
@@ -106,9 +124,26 @@ b{
   
 }
 
+.imagem-card{
+  
+        width: 70%;
+        margin-left: 15%;
+        margin-top: 5%;
+        border-radius: 50%;
+ 
+}
+
+.card-color{
+
+    border-radius: 15px;
+    width: 22rem;
+    height: 32rem;
+    margin-left: 15%;
+    background-color: #37393B;
+}
+
 .info-repo{
-    text-align: center;
-    color: aliceblue;
+    padding: 1%;
 }
 
 .desc-repo{
@@ -119,74 +154,28 @@ b{
     width: 100%;
 }
 
-
-   
-
 .repo-desc{
     color: aliceblue;
     text-align: justify;
 }
+
 .repo-p{
     size: 25px;
     padding-top: 2%;
     color: aliceblue;
 }
 
-
-
-
-
-.graph-language{
-    height: 98%;
-    padding: 5%;
-    width: 100%;
-    border-radius: 15px;
-    background-color: #1E1E1E;
-    ;
- 
+.link-repo{
+    text-decoration: none;
 }
+  .link-repo{
+    color:  #fff ;
+    font-size: 22px;
+    margin-right: 75%;
+  }
+  .link-repo:hover {
+    color: rgb(80, 80, 80); 
+  }
 
-.titulo-graph{
-    padding-top: 5%;
-    text-align: center;
-    color: aliceblue;
-}
 
-.owner-graph{
-    text-decoration: underline;
-    font-style: italic;
-    padding-top: 10%;
-    color: aliceblue;
-}
 
-.sub-graph{
-    text-align: center;
-    font-style: italic;
-    color: aliceblue;
-}
-
-.Doughnut{
-    height: 300px;
-   
-}
-
-.testando{
-    height: auto;
-    width: 100%;
-    margin-bottom: 2%;
-}
-
-.testando1{
-    height: 245px;
-    width: 100%;
-    background-color: rgb(236, 0, 0);
-}
-
-.commits-graph{
-    height: 25rem;
-    padding: 5%;
-    margin-bottom: 0.3rem;
-    width: 100%;
-    border-radius: 15px;
-    background-color: #1E1E1E;
-}

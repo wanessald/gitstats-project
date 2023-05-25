@@ -1,0 +1,16 @@
+.card-insights-forks{
+    width: 100%;
+    background-color:#1E1E1E;
+    border-radius:15px;
+    padding: 5%
+}
+
+.title-insights-forks{
+    text-align:center;
+    color:aliceblue
+}
+
+.number-insights-forks{
+    color:aliceblue;
+}
+

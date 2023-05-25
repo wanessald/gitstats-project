@@ -1,0 +1,16 @@
+.card-insights-stars{
+    width: 100%;
+    background-color:#1E1E1E;
+    border-radius:15px;
+    padding: 5%
+}
+
+.title-insights-stars{
+    text-align:center;
+    color:aliceblue
+}
+
+.number-insights-stars{
+    color:aliceblue;
+}
+

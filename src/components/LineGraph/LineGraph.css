@@ -1,11 +1,14 @@
-h4{
-    text-align: center;
-    color: aliceblue;
-    
-}
-
 .commits-graph{
-    margin-bottom: 8rem;
-    padding: auto;
+    height: 25rem;
+    padding: 5%;
+    margin-bottom: 0.3rem;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #1E1E1E;
 }
 
+.title-commit{
+    text-align:center;
+    color:aliceblue;
+    margin-bottom:0%
+}
