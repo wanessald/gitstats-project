@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Col, Row, Container} from "react-bootstrap";
 import axios from "axios";
-import { GraphLanguage } from "../GraphLanguage/GraphLanguage";
+import { GraphLanguage } from "../../components/GraphLanguage/GraphLanguage";
 import "./UserInfo.css";
-import { ContributorsChart } from "../Contribuições/Contribuições";
-import { Forks } from "../Forks/Forks";
+import { ContributorsChart } from "../../components/Contribuições/Contribuições";
+import { Forks } from "../../components/Forks/Forks";
 import GithubStars from "../../components/GithubStars/GithubStars";
 import { ArrowLeft } from 'react-bootstrap-icons';
 import GithubBranches from "../../components/GithubBranches/GithubBranches";
-import { InsightChart } from "../LineGraph/LineGraph";
+import { InsightChart } from "../../components/LineGraph/LineGraph";
 import ShareInfo from "../../components/ShareInfo/ShareInfo";
 
 export function UserInfos() {
