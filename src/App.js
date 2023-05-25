@@ -1,16 +1,28 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Root } from "./pages/Root/Root";
-import { UserInfos } from "./components/UserInfos/UserInfos";
-import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
-import './components/ThemeToggle/theme.css';
+import { UserInfos } from "./pages/UserInfos/UserInfos";
 import { Home } from "./pages/Home/Home";
+import { useState } from "react";
+import { ThemeContext } from "./components/contexts/ThemeContext";
+
 
 export function App() {
-  
-  return (
-      <div>
-        <ThemeToggle />
+  const [temaEscuro, setTemaEscuro] = useState(false);
 
+  //alterna entre true e false toda vez que for chamada;
+  function alternar() {
+    if (temaEscuro === true) {
+      setTemaEscuro(false);
+    } else {
+      setTemaEscuro(true);
+    }
+  }
+
+  return (
+    <>
+    <ThemeContext.Provider
+      value={{ temaEscuro: temaEscuro, alternar: alternar }}
+    >
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Root/>}>
@@ -19,7 +31,8 @@ export function App() {
       </Route>
     </Routes>
   </BrowserRouter>
-  </div>
+  </ThemeContext.Provider>
+    </>
   );
 }
 
