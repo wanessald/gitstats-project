@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Card, Col, Row, Container, Button } from "react-bootstrap";
+import { Col, Row, Container} from "react-bootstrap";
 import axios from "axios";
 import { GraphLanguage } from "../GraphLanguage/GraphLanguage";
 import "./UserInfo.css";
@@ -17,7 +17,7 @@ export function UserInfos() {
   const [userData, setUserData] = useState(null);
   const [repos, setRepos] = useState([]);
   const [selectedRepo, setSelectedRepo] = useState(null);
-  const [sortedRepos, setSortedRepos] = useState([]);
+
 
   const handleRepoClick = (id) => {
     setSelectedRepo(id);
@@ -64,48 +64,33 @@ export function UserInfos() {
         <>
 <Container className="content p-4">
             <Row className="row-principal">
-              <Row style={{ height: "8%" }}>
+              <Row className="arrow-size">
                 <Col md={1}>
                   <div>
-                   
-                      <Link to="/">
-                        <ArrowLeft color="#D9D9D9" size={35} />
-                      </Link>
-                  
+                    <Link to="/">
+                      <ArrowLeft className="arrow" size={35} />
+                    </Link>
                   </div>
                 </Col>
               </Row>
               <Col md={6}>
                 <div className="card-align">
-                  <Card
-                    className="card d-flex"
-                    style={{
-                      borderRadius:"15px",
-                      width: "22rem",
-                      height: "32rem",
-                      marginLeft: "15%",
-                      backgroundColor: "#37393B",
-                    }}
+                  <div
+                    className="card-color"
                   >
                     <Link to={userData.html_url} target="_blank">
-                      <Card.Img
+                      <img
+                        className="imagem-card"
                         variant="top"
-                        style={{
-                          width: "70%",
-                          marginLeft: "15%",
-                          marginTop: "5%",
-                          borderRadius: "50%",
-                        }}
+                        alt="usuário"
                         src={userData.avatar_url}
                       />
                     </Link>
 
-                    <Card.Body>
-                      <Card.Title
-                        style={{ textAlign: "center", color: "#fcfcfc" }}
-                      >
+                    
+                      < div className="username-card">
                         {userData.name}
-                      </Card.Title>
+                   
                       {userData.bio ? (
                         <p className="bio">"{userData.bio}"</p>
                       ) : (
@@ -114,7 +99,7 @@ export function UserInfos() {
                         </p>
                       )}
 
-                      <Card.Text>
+                     
                         <Row>
                           <Col md={4}>
                             <div className="info-perfil">
@@ -150,9 +135,8 @@ export function UserInfos() {
                             new Date(userData.updated_at)
                           )}
                         </p>
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
+                  </div>
+                </div>
                 </div>
               </Col>
 
@@ -160,11 +144,10 @@ export function UserInfos() {
                 <div className="scroll">
                   {repos.map((repo) => (
                     <button
-                      title={repo.updated_at.toLocaleString()}
                       style={{ height: 78 }}
                       className="button-repo"
                       onClick={() => handleRepoClick(repo.id)}
-                    > 
+                    >
                       {repo.name}
                     </button>
                   ))}
@@ -179,61 +162,43 @@ export function UserInfos() {
               return (
                 <>
                   <Container className="content-repos ">
-                    <Row className="pt-2">
-                      <Col md={4}>
-                        <div className="info-repo pt-1">
-                          <h4>{repo.name}</h4>
-                        </div>
-                      </Col>
-                      <Col md={3}>
-                        <div className="info-repo">
-                          <p className="repo-p pt-2">
-                            <b>
-                              Data de criação:
-                              {Intl.DateTimeFormat("pt-br").format(
-                                new Date(repo.created_at)
-                              )}
-                            </b>
-                             
-                            </p>
-                         
-                        </div>
-                      </Col>
-                      <Col md={3}>
-                        <div className="info-repo">
-                          <p className="repo-p pt-1">
-                            <b>
-                              {" "}
-                              {repo.language ? (
-                                <p>Linguagem {repo.language}</p>
-                              ) : (
-                                <p>Não contém linguagens.</p>
-                              )}
-                            </b>
-                          </p>
-                        </div>
-                      </Col>
-                      <Col md={2}>
-                        <div className="button-github">
-                          <Button
-                            className="btn-light mr-3"
+                    <Row >
+                    <Col md={10}>
+                        <div className="info-repo ">
+                          <Link
                             target="_blank"
-                            href={repo.html_url}
+                            title="abrir no github"
+                            to={repo.html_url}
+                            className="link-repo"
                           >
-                            Ir para o Github
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
+                              width="19"
+                              height="19"
                               fill="currentColor"
-                              class="bi bi-github"
+                              class="bi bi-box-arrow-up-right"
                               viewBox="0 0 16 16"
                             >
-                              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                            </svg>
-                          </Button>
-                          <ShareInfo owner={userName} repo={repo.name} />
+                              <path
+                                fill-rule="evenodd"
+                                d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"
+                              />
+                              <path
+                                fill-rule="evenodd"
+                                d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"
+                              />
+                            </svg>{" "}
+                            {repo.name}
+                          </Link>
                         </div>
+                      </Col>
+
+                   
+                     
+                      <Col md={2}>
+                        
+                          <ShareInfo owner={userName} repo={repo.name} />
+                        
                       </Col>
                     </Row>
                   </Container>
@@ -267,7 +232,8 @@ export function UserInfos() {
                          
                         </Col>
                         <Col>
-                          <ContributorsChart dono={userName} repo={repo.name} />
+                        <InsightChart userName={userName} repo={repo.name} />
+                         
                           </Col>
                       </Col>
                       <Col md={4}>
@@ -277,7 +243,7 @@ export function UserInfos() {
                     </Row>
                     <Row>
                       <Col>
-                      <InsightChart userName={userName} repo={repo.name} />
+                      <ContributorsChart dono={userName} repo={repo.name} />
                       </Col>
                     </Row>
                     <Row>

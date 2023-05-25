@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Card from "react-bootstrap/Card";
+import "./GithubBranches.css";
 
 const GithubBranches = ({ username, repoName }) => {
   const [branches, setBranches] = useState([]);
@@ -24,10 +24,8 @@ const GithubBranches = ({ username, repoName }) => {
   }
 
   return (
-    <Card style={{ width: "100%", backgroundColor:"#1E1E1E", borderRadius:"15px" }}>
-      <Card.Body>
-        {" "}
-        <h4 style={{textAlign:"center", color:"aliceblue"}}>Branches</h4>
+    <div className="card-insights-branches" >
+        <h4 className="title-insights-branches">Branches</h4>
         <div className="row">
           <div className="col text-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-tree" viewBox="0 0 16 16">
@@ -37,11 +35,10 @@ const GithubBranches = ({ username, repoName }) => {
         </div>
         <div className="row">
           <div className="col text-center">
-            <h3 style={{color:"aliceblue"}}>{branches.length}</h3>
+            <h3 className="number-insights-branches">{branches.length}</h3>
           </div>
         </div>
-      </Card.Body>
-    </Card>
+        </div>
   );
 };
 

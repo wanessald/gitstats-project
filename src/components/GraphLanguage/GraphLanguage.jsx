@@ -6,7 +6,7 @@ import { Doughnut } from "react-chartjs-2";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import "../UserInfos/UserInfo.css";
+import "./GraphLanguage.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -75,13 +75,12 @@ export function GraphLanguage(parametros) {
       });
   }, [parametros.dono, parametros.repo]);
   return (
-    <div className="graph-language">
+<div className="graph-language">
       <h4 className="titulo-graph">Linguagem mais usada</h4>
       <h6 className="sub-graph"> {parametros.repo}</h6>
-      <br />
+      <br /> <br />
       <Doughnut className="Doughnut" data={graphData} />
-      <br />
-      <p className="owner-graph"> {parametros.dono}</p>
+      
     </div>
   );
 }

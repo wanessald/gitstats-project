@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { DropdownButton, Dropdown } from "react-bootstrap";
-
+import "./ShareInfo.css"
 const EmailIcon = () => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +59,7 @@ function ShareInfo({ owner, repo }) {
 
     return (
         <div>
-            <DropdownButton id="dropdown-basic-button" title="Compartilhar">
+            <DropdownButton className="btn-share" id="dropdown-basic-button" title="Compartilhar">
                 <Dropdown.Item href={links.emailLink}>
                     <EmailIcon /> Compartilhar por email
                 </Dropdown.Item>

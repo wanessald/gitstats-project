@@ -3,6 +3,8 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import "./LineGraph.css"
+
 
 import {
   Chart as ChartJS,
@@ -118,8 +120,8 @@ export function InsightChart({ userName, repo }) {
   }, [userName, repo]);
   
   return (
-    <div className="commits-graph" style={{ width: "100%"}}>
-        <h4 style={{ color: "aliceblue", textAlign: "center"}}>Commits</h4>
+    <div className="commits-graph" >
+        <h4 className="title-commit">Commits</h4>
         {commitStats ? (
         <>
         <Line style={{ width: "70%", alignContent: "center"}} options={graphOptions} data={graphData} />

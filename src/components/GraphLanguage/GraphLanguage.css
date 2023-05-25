@@ -1,0 +1,33 @@
+.graph-language{
+    height: 99%;
+    padding: 5%;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #1E1E1E;
+    
+ 
+}
+
+.titulo-graph{
+    padding-top: 20%;
+    text-align: center;
+    color: aliceblue;
+}
+
+.owner-graph{
+    text-decoration: underline;
+    font-style: italic;
+    padding-top: 10%;
+    color: aliceblue;
+}
+
+.sub-graph{
+    text-align: center;
+    font-style: italic;
+    color: aliceblue;
+}
+
+.Doughnut{
+    height: 300px;
+   
+}
