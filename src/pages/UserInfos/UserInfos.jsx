@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Col, Row, Container} from "react-bootstrap";
+import { Col, Row, Container, Button} from "react-bootstrap";
 import axios from "axios";
 import { GraphLanguage } from "../../components/GraphLanguage/GraphLanguage";
 import "./UserInfo.css";
@@ -11,6 +11,8 @@ import { ArrowLeft } from 'react-bootstrap-icons';
 import GithubBranches from "../../components/GithubBranches/GithubBranches";
 import { InsightChart } from "../../components/LineGraph/LineGraph";
 import ShareInfo from "../../components/ShareInfo/ShareInfo";
+import { PDFButton } from "../../components/PDFButton/PDFButton";
+
 
 export function UserInfos() {
   const { userName } = useParams();
@@ -163,7 +165,7 @@ export function UserInfos() {
                 <>
                   <Container className="content-repos ">
                     <Row >
-                    <Col md={4}>
+                    <Col md={3}>
                         <div className="info-repo ">
                           <Link
                             target="_blank"
@@ -192,19 +194,23 @@ export function UserInfos() {
                           </Link>
                         </div>
                       </Col>
-
-                      <Col md={4}>
+                      <Col md={3}>
                         <div className="info-repo">
-                          <h5 className="repo-p">
-                            Data de Criação: 
-                            {Intl.DateTimeFormat("pt-br").format(
-                              new Date(repo.created_at)
-                            )}
-                          </h5>
+                        <h5>
+                        {Intl.DateTimeFormat("pt-br").format(new Date(repo.created_at))}
+                        </h5>
+                        </div>
+                      </Col>
+
+                      <Col md={3}>
+                        <div className="info-repo">
+                        <button>
+                        <PDFButton userData={userData} repos={repos} selectedRepo={selectedRepo} />
+                        </button>
                         </div>
                       </Col>
                      
-                      <Col md={4}>
+                      <Col md={3}>
                         
                           <ShareInfo owner={userName} repo={repo.name} />
                         
