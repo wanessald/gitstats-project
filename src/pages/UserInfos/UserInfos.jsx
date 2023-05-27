@@ -137,9 +137,11 @@ export function UserInfos() {
                             new Date(userData.updated_at)
                           )}
                         </p>
+                       
                   </div>
                 </div>
                 </div>
+              
               </Col>
 
               <Col className="colun-2" md={6}>
@@ -165,6 +167,13 @@ export function UserInfos() {
                 <>
                   <Container className="content-repos ">
                     <Row >
+                    <Col md={3}>
+                        <div className="info-repo">
+                        <Button variant="dark" className="button-pdf">
+                        <PDFButton userData={userData} repos={repos} selectedRepo={selectedRepo} />
+                        </Button>
+                        </div>
+                      </Col>
                     <Col md={3}>
                         <div className="info-repo ">
                           <Link
@@ -196,20 +205,11 @@ export function UserInfos() {
                       </Col>
                       <Col md={3}>
                         <div className="info-repo">
-                        <h5>
+                        <h5 className="date-repo">
                         {Intl.DateTimeFormat("pt-br").format(new Date(repo.created_at))}
                         </h5>
                         </div>
                       </Col>
-
-                      <Col md={3}>
-                        <div className="info-repo">
-                        <button>
-                        <PDFButton userData={userData} repos={repos} selectedRepo={selectedRepo} />
-                        </button>
-                        </div>
-                      </Col>
-                     
                       <Col md={3}>
                         
                           <ShareInfo owner={userName} repo={repo.name} />
@@ -217,13 +217,14 @@ export function UserInfos() {
                       </Col>
                     </Row>
                   </Container>
-                  <Container key={repo.id} className="pt-3">
+
+                  <Container key={repo.id} className="content-infos mt-3">
                     <Row>
-                      <Col md={8}>
+                      <Col md={8} style={{padding:"0"}}>
                         <div className="desc-repo">
                           {repo.description ? (
                             <p className="repo-desc">
-                              Descrição do Repositório: {repo.description}
+                              Descrição: {repo.description}
                             </p>
                           ) : (
                             <p className="repo-desc pt-2">
@@ -233,31 +234,31 @@ export function UserInfos() {
                         </div>
                         <Col>
                         <Row className="mb-3">
-                          <Col>
+                          <Col className="mt-3" >
                           <GithubStars username={userName} repo={repo.name} />
                           </Col>
-                          <Col>
+                          <Col className="mt-3" >
                           <Forks dono={userName} repo={repo.name} />
                           </Col>
-                          <Col>
+                          <Col className="mt-3" >
                           
                           <GithubBranches username={userName} repoName={repo.name} />   
                           </Col>
                         </Row>
                          
                         </Col>
-                        <Col>
+                        <Col style={{padding:"0"}}>
                         <InsightChart userName={userName} repo={repo.name} />
                          
                           </Col>
                       </Col>
-                      <Col md={4}>
+                      <Col md={4} style={{padding:"0"}}>
                         <GraphLanguage dono={userName} repo={repo.name} />
                    
                       </Col>
                     </Row>
-                    <Row className="pt-2">
-                      <Col>
+                    <Row className="pt-3">
+                      <Col style={{padding:"0"}}>
                       <ContributorsChart dono={userName} repo={repo.name} />
                       </Col>
                     </Row>

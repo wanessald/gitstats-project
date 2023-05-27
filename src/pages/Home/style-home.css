@@ -9,7 +9,7 @@
      left: 80px;
      top: 47px;
      background: #1E1E1E;
-     border-radius: 20px;
+     border-radius: 30px;
      transform: translate(16%, -3%);
      background-position: center;
      display: block;
@@ -18,10 +18,11 @@
      width: 500px !important;
      height: 38px;
      margin-top: 35%;
-     box-shadow: 0px 12px 18px #000000;
-     border-radius: 17px;
+     box-shadow: 0px 8px 15px #000000;
      transform: translate(38%, -3%);
    }
+
+   
    .form h2 {
      position: absolute;
      width: 500px;
