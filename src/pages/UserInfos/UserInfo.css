@@ -1,5 +1,4 @@
 .content{
-
     background-color: #1E1E1E;
     border-radius: 15px;
     height: 650px;
@@ -120,7 +119,16 @@ b{
     border-radius: 15px;
     background-color: #1E1E1E;
     margin-top: 1%;
-    justify-content: space-around;
+    height: 3.9rem;
+    padding-top: 0.5rem;
+  
+}
+
+.content-infos{
+    border-radius: 15px;
+    background-color: #151414;
+    margin-top: 1%;
+
   
 }
 
@@ -136,7 +144,7 @@ b{
 .card-color{
 
     border-radius: 15px;
-    width: 22rem;
+    width: 25rem;
     height: 32rem;
     margin-left: 15%;
     background-color: #37393B;
@@ -151,7 +159,6 @@ b{
     background-color: #1E1E1E;
     border-radius: 15px;
     padding: 1%;
-    margin-bottom: 2%;
     width: 100%;
 }
 
@@ -172,11 +179,17 @@ b{
   .link-repo{
     color:  #fff ;
     font-size: 22px;
-    margin-right: 45%;
+   
   }
   .link-repo:hover {
     color: rgb(80, 80, 80); 
   }
 
+.button-pdf{
+    margin-right: 60%;
+}
 
-
+.date-repo{
+    padding-top: 2%;
+    color: #fcfcfc;
+}

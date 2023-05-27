@@ -4,7 +4,7 @@ export const PDFButton = ({ userData, repos, selectedRepo }) => {
   const topRepos = repos.slice(0, 3);
 
   return (
-    <PDFDownloadLink
+    <PDFDownloadLink style={{textDecoration:"none", color:"white"}}
       document={
         <MyDocument
           userData={userData}
@@ -12,7 +12,7 @@ export const PDFButton = ({ userData, repos, selectedRepo }) => {
           selectedRepo={selectedRepo}
         />
       }
-      fileName="user_info.pdf"
+      fileName={userData.name}
     >
       {({ blob, url, loading, error }) =>
         loading ? "Gerando PDF..." : "Baixar PDF"

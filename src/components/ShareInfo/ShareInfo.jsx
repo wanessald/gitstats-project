@@ -1,74 +1,99 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import axios from "axios";
-import { DropdownButton, Dropdown } from "react-bootstrap";
-import "./ShareInfo.css"
+import { Modal, Button  } from "react-bootstrap";
+import "./ShareInfo.css";
 const EmailIcon = () => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-envelope"
-        viewBox="0 0 16 16"
-    >
-        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
-    </svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-envelope"
+    viewBox="0 0 16 16"
+  >
+    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+  </svg>
 );
 
 const WhatsappIcon = () => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-whatsapp"
-        viewBox="0 0 16 16"
-    >
-        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
-    </svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-whatsapp"
+    viewBox="0 0 16 16"
+  >
+    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+  </svg>
 );
 
 function ShareInfo({ owner, repo }) {
-    const [links, setLinks] = useState({});
+  const [links, setLinks] = useState({});
 
-    useEffect(() => {
-        const fetchInfo = async () => {
-            try {
-                const repoResponse = await axios.get(
-                    `https://api.github.com/repos/${owner}/${repo}`
-                );
-                const userResponse = await axios.get(
-                    `https://api.github.com/users/${owner}`
-                );
+  useEffect(() => {
+    const fetchInfo = async () => {
+      try {
+        const repoResponse = await axios.get(
+          `https://api.github.com/repos/${owner}/${repo}`
+        );
+        const userResponse = await axios.get(
+          `https://api.github.com/users/${owner}`
+        );
 
-                let repoData = repoResponse.data;
-                let userData = userResponse.data;
-                let message = `Confira este repositório incrível chamado ${repoData.name} por ${userData.name}! ${repoData.html_url}`;
-                let encodedMessage = encodeURIComponent(message);
-                let emailLink = `mailto:?subject=Confira%20este%20repositório&body=${encodedMessage}`;
-                let whatsappLink = `https://wa.me/?text=${encodedMessage}`;
+        let repoData = repoResponse.data;
+        let userData = userResponse.data;
+        let message = `Confira este repositório incrível chamado ${repoData.name} por ${userData.name}! ${repoData.html_url}`;
+        let encodedMessage = encodeURIComponent(message);
+        let emailLink = `mailto:?subject=Confira%20este%20repositório&body=${encodedMessage}`;
+        let whatsappLink = `https://wa.me/?text=${encodedMessage}`;
 
-                setLinks({ emailLink, whatsappLink });
-            } catch (error) {
-                console.error("Erro:", error);
-            }
-        };
+        setLinks({ emailLink, whatsappLink });
+      } catch (error) {
+        console.error("Erro:", error);
+      }
+    };
 
-        fetchInfo();
-    }, [owner, repo]);
+    fetchInfo();
+  }, [owner, repo]);
 
-    return (
-        <div>
-            <DropdownButton className="btn-share" id="dropdown-basic-button" title="Compartilhar">
-                <Dropdown.Item href={links.emailLink}>
-                    <EmailIcon /> Compartilhar por email
-                </Dropdown.Item>
-                <Dropdown.Item href={links.whatsappLink}>
-                    <WhatsappIcon /> Compartilhar pelo WhatsApp
-                </Dropdown.Item>
-            </DropdownButton>
-        </div>
-    );
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <div>
+      <Button variant="dark" className="btn-share mt-1 mb-1" onClick={handleShow}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+  <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+</svg>
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Compartilhar</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Button  variant="danger"  style={{width:"60%", marginLeft:"20%", marginBottom:"2%"}}  href={links.emailLink}>
+            
+            <EmailIcon /> E-mail
+          </Button>
+          <Button  variant="success" style={{width:"60%", marginLeft:"20%"}} href={links.whatsappLink}>
+         
+            <WhatsappIcon /> WhatsApp
+          </Button>
+          
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="dark" onClick={handleClose}>
+            Fechar
+          </Button>
+         
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
 }
 
 export default ShareInfo;

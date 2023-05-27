@@ -49,7 +49,7 @@ export function Home() {
                 Pesquise por perfis e acompanhe as estatísticas de seus usuários
                 e repositórios de maneira regular.
               </h2>
-              <InputGroup className=" busca">
+              <InputGroup className=" busca" style={{border:"none", borderRadius:"15px"}}>
                 <Form.Control
                   type="text"
                   className="input-name-user"
@@ -61,7 +61,7 @@ export function Home() {
                 <Button
                   variant="primary"
                   type="button"
-                  style={{ backgroundColor: "#fff" }}
+                  style={{ backgroundColor: "#fff", border:"none" }}
                   onClick={handleSearch}
                 >
                   <svg
