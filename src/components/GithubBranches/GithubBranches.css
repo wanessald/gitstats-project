@@ -1,12 +1,6 @@
-.dark .card-insights-branches{
+.card-insights-branches{
     width: 98%;
     background-color:#1E1E1E;
-    border-radius:15px;
-    padding: 5%
-}
-.light .card-insights-branches{
-    width: 98%;
-    background-color:#9AA0A6;
     border-radius:15px;
     padding: 5%
 }

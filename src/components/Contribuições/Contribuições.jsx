@@ -23,7 +23,6 @@ ChartJS.register(
 
 export function ContributorsChart({ dono, repo }) {
   const [contributorsData, setContributorsData] = useState(null);
-  const [theme] = useState("light");
 
   useEffect(() => {
     axios
@@ -43,7 +42,13 @@ export function ContributorsChart({ dono, repo }) {
             {
               label: "Contribuições",
               data: dataset,
-              backgroundColor: getBackgroundColor(),
+              backgroundColor: [
+                "rgba(  0 , 0 , 255)",
+                "rgba( 255 , 0 , 255)",
+                "rgba( 255 , 255 , 0)",
+                "rgba( 255 , 128 , 0)",
+                "rgba(0 , 255 , 0)",
+              ],
             },
           ],
         };
@@ -53,29 +58,7 @@ export function ContributorsChart({ dono, repo }) {
       .catch((error) => {
         console.log(error);
       });
-  },);
-
- 
-
-  const getBackgroundColor = () => {
-    if (theme === "light") {
-      return [
-        "rgba(0, 0, 255)",
-        "rgba(255, 0, 255)",
-        "rgba(255, 255, 0)",
-        "rgba(255, 128, 0)",
-        "rgba(0, 255, 0)",
-      ];
-    } else if (theme === "dark") {
-      return [
-        "rgba(255, 0, 0)",
-        "rgba(0, 255, 255)",
-        "rgba(255, 255, 255)",
-        "rgba(0, 128, 255)",
-        "rgba(255, 255, 0)",
-      ];
-    }
-  };
+  }, [dono, repo]);
 
   const options = {
     responsive: true,
@@ -92,13 +75,12 @@ export function ContributorsChart({ dono, repo }) {
   };
 
   return (
-    <div className={`contrib-graph ${theme}`} style={{ height: "25rem" }}>
+    <div className="contrib-graph" style={{height:"25rem"}}>
+      
       {contributorsData ? (
         <>
-          <h5 style={{ textAlign: "center", color: "aliceblue", marginBottom: "0%" }}>
-            Contribuidores e Contribuições
-          </h5>
-          <Bar style={{ height: "94%" }} data={contributorsData} options={options} />
+        <h5 style={{textAlign:"center", color:"aliceblue", marginBottom:"0%"}}>Contribuidores e Contribuições</h5>
+        <Bar style={{height:"94%"}} data={contributorsData} options={options} />
         </>
       ) : (
         <p>Esse Repositório não contém dados de contribuições...</p>

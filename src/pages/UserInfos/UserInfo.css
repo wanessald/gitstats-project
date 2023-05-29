@@ -1,12 +1,8 @@
-.content.dark{
+.content{
     background-color: #1E1E1E;
     border-radius: 15px;
     height: 650px;
-}
-.content.light{
-    background-color: #9AA0A6;
-    border-radius: 15px;
-    height: 650px;
+    
 }
 
 .content-dois{
@@ -19,61 +15,42 @@
     
 }
 
+.fundo{
+    background-color:#151414;
+      padding-bottom:4%;
+     padding-top:3%
+}
+
 .arrow{
     color: #37393B;
 }
 
-.dark.username-card{
+.username-card{
     padding-top: 2%;
     text-align: center;
      color: #fcfcfc
-}
-.light.username-card{
-    padding-top: 2%;
-    text-align: center;
-     color: #D9D9D9
 }
 
 .titulo-nome{
     text-align: center;
 }
 
-.bio.dark{
+.bio{
     color: #fcfcfc;
     text-align: center;
     font-size: 14px;
     font-style: italic;
 }
-.bio.light{
-    color: #D9D9D9;
-    text-align: center;
-    font-size: 14px;
-    font-style: italic;
-}
 
-.update-perfil.dark{
+.update-perfil{
     color: #fcfcfc;
     text-align: center;
     font-size: 13px;
     font-style: italic;
 }
-.update-perfil.light{
-    color: #1E1E1E;
-    text-align: center;
-    font-size: 13px;
-    font-style: italic;
-}
 
-.dark.info-perfil{
+.info-perfil{
     color: #fcfcfc;
-    font-size: 12px;
-    text-align: center;
-    padding-top: 20%;
-    width: 93px;
-    border-radius: 3%;
-}
-.light.info-perfi{
-    color: #ff0000;
     font-size: 12px;
     text-align: center;
     padding-top: 20%;
@@ -107,7 +84,7 @@ b{
     height: 2px;
 }
 
-.scroll.dark{
+.scroll{
     align-items: center;
     overflow-y: scroll;
     display: flex;
@@ -115,18 +92,12 @@ b{
     background-color: #1E1E1E;
     height: 85%;
     padding: auto;
-}
-.scroll.light{
-    align-items: center;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    background-color: #9AA0A6;
-    height: 85%;
-    padding: auto;
+
 }
 
-.dark .button-repo{
+
+
+.button-repo{
     border: 1px solid transparent;
     border-radius: 14px;
     width: 75%;    
@@ -138,75 +109,45 @@ b{
     margin-bottom: 0.2rem;
     cursor: pointer;
 }
-.light .button-repo{
-    border: 1px solid transparent;
-    border-radius: 14px;
-    width: 75%;    
-    padding: 18px;
-    background-color: #1E1E1E;
-    color: #fcfcfc;
-    font-size: 20px;
-    margin-top: 0.2rem;
-    margin-bottom: 0.2rem;
-    cursor: pointer;
-}
 
-
-.dark .button-repo:hover{
+.button-repo:hover{
     background-color: #D9D9D9;
     color: #37393B;
 }
-.light .button-repo:hover{
-    background-color: #37393B;
-    color: #fff;
-}
 
-.content-repos.dark{
+.content-repos{
     border-radius: 15px;
     background-color: #1E1E1E;
     margin-top: 1%;
     height: 3.9rem;
     padding-top: 0.5rem;
-}
-.content-repos.light{
-    border-radius: 15px;
-    background-color: #9AA0A6;
-    margin-top: 1%;
-    height: 3.9rem;
-    padding-top: 0.5rem;
+  
 }
 
-.content-infos.dark{
+.content-infos{
     border-radius: 15px;
     background-color: #151414;
     margin-top: 1%;
-}
-.content-infos.light{
-    border-radius: 15px;
-    background-color: #E8EAED;
-    margin-top: 1%;
+
+  
 }
 
 .imagem-card{
+  
         width: 70%;
         margin-left: 15%;
         margin-top: 5%;
         border-radius: 50%;
+ 
 }
 
-.card-color.dark{
+.card-color{
+
     border-radius: 15px;
     width: 25rem;
     height: 32rem;
     margin-left: 15%;
     background-color: #37393B;
-}
-.card-color.light{
-    border-radius: 15px;
-    width: 25rem;
-    height: 32rem;
-    margin-left: 15%;
-    background-color: #1E1E1E;
 }
 
 .info-repo{
@@ -214,47 +155,33 @@ b{
     text-align: center;
 }
 
-.dark .desc-repo{
+.desc-repo{
     background-color: #1E1E1E;
     border-radius: 15px;
     padding: 1%;
     width: 100%;
 }
-.light .desc-repo{
-    background-color: #9AA0A6;
-    border-radius: 15px;
-    padding: 1%;
-    width: 100%;
-}
 
-.dark .repo-desc{
-    color: rgb(255, 255, 255);
-    text-align: justify;
-}
-.light .repo-desc{
-    color: #ffffff;
+.repo-desc{
+    color: aliceblue;
     text-align: justify;
 }
 
-.dark .repo-p{
+.repo-p{
     size: 25px;
     padding-top: 2%;
     color: aliceblue;
-}
-.light .repo-p {
-    size: 25px;
-    padding-top: 2%;
-    color: #1E1E1E;
 }
 
 .link-repo{
     text-decoration: none;
 }
-.link-repo{
+  .link-repo{
     color:  #fff ;
     font-size: 22px;
+   
   }
-.link-repo:hover {
+  .link-repo:hover {
     color: rgb(80, 80, 80); 
   }
 

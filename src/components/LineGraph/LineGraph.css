@@ -1,18 +1,10 @@
-.dark .commits-graph{
+.commits-graph{
     height: 25rem;
     padding: 5%;
     margin-bottom: 0.3rem;
     width: 100%;
     border-radius: 15px;
     background-color: #1E1E1E;
-}
-.light .commits-graph{
-    height: 25rem;
-    padding: 5%;
-    margin-bottom: 0.3rem;
-    width: 100%;
-    border-radius: 15px;
-    background-color: #9AA0A6;
 }
 
 .title-commit{
