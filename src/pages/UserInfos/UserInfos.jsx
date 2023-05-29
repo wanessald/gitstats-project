@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Col, Row, Container, Button} from "react-bootstrap";
+import { Col, Row, Container, Button } from "react-bootstrap";
 import axios from "axios";
 import { GraphLanguage } from "../../components/GraphLanguage/GraphLanguage";
 import "./UserInfo.css";
@@ -12,14 +12,14 @@ import GithubBranches from "../../components/GithubBranches/GithubBranches";
 import { InsightChart } from "../../components/LineGraph/LineGraph";
 import ShareInfo from "../../components/ShareInfo/ShareInfo";
 import { PDFButton } from "../../components/PDFButton/PDFButton";
-
+import ThemeToggle from "../../components/Botao/ThemeToggle";
 
 export function UserInfos() {
   const { userName } = useParams();
   const [userData, setUserData] = useState(null);
   const [repos, setRepos] = useState([]);
   const [selectedRepo, setSelectedRepo] = useState(null);
-
+  const [theme, setTheme] = useState('light');
 
   const handleRepoClick = (id) => {
     setSelectedRepo(id);
@@ -42,35 +42,42 @@ export function UserInfos() {
       .then((response) => {
         setRepos(response.data);
       })
-
       .catch((error) => {
         console.log(error);
       });
   }, [userName]);
 
-     useEffect(() => {
-        axios
-        .get(`https://api.github.com/users/${userName}/repos?sort=updated`)
-        .then((response) => {
-          const sortedRepos = response.data.sort((a, b) => {
-            return b.updated_at.localeCompare(a.updated_at);
-          });
-          setRepos(sortedRepos);
+  useEffect(() => {
+    axios
+      .get(`https://api.github.com/users/${userName}/repos?sort=updated`)
+      .then((response) => {
+        const sortedRepos = response.data.sort((a, b) => {
+          return b.updated_at.localeCompare(a.updated_at);
+        });
+        setRepos(sortedRepos);
       });
   }, [userName]);
- 
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   return (
-    <main style={{backgroundColor:"#151414",  paddingBottom:"4%", paddingTop:"3%"}}>
+    <main style={{ backgroundColor: theme === 'light' ? '#E8EAED' : '#151414', paddingBottom: "4%", paddingTop: "3%" }}>
+      <header className="d-flex align-items-center">
+        <div style={{ position: "relative", left: "88rem" }}>
+          <ThemeToggle toggleTheme={toggleTheme} />
+        </div>
+      </header>
       {userData && (
         <>
-<Container className="content p-4">
+          <Container className={`content p-4 ${theme}`}>
             <Row className="row-principal">
               <Row className="arrow-size">
                 <Col md={1}>
                   <div>
                     <Link to="/">
-                      <ArrowLeft className="arrow" size={35} />
+                      <ArrowLeft className="arrow" size={35} /> 
                     </Link>
                   </div>
                 </Col>
@@ -78,7 +85,7 @@ export function UserInfos() {
               <Col md={6}>
                 <div className="card-align">
                   <div
-                    className="card-color"
+                    className={`card-color ${theme}`}
                   >
                     <Link to={userData.html_url} target="_blank">
                       <img
@@ -88,68 +95,63 @@ export function UserInfos() {
                         src={userData.avatar_url}
                       />
                     </Link>
+                    <div className={`username-card ${theme}`}>
+                      {userData.name}
 
-                    
-                      < div className="username-card">
-                        {userData.name}
-                   
                       {userData.bio ? (
-                        <p className="bio">"{userData.bio}"</p>
+                        <p className={`bio ${theme}`}>"{userData.bio}"</p>
                       ) : (
-                        <p className="bio">
+                        <p className={`bio ${theme}`}>
                           <i>sem biografia</i>
                         </p>
                       )}
+                      <Row>
+                        <Col md={4}>
+                          <div className={`info-perfil  ${theme}`}>
+                            <p>
+                              <b>{userData.public_repos}</b>
+                              <br />
+                              Repositórios
+                            </p>
+                          </div>
+                        </Col>
+                        <Col md={4}>
+                          <div className={`info-perfil  ${theme}`}>
+                            <p>
+                              <b> {userData.followers}</b>
+                              <br />
+                              Seguidores
+                            </p>
+                          </div>
+                        </Col>
+                        <Col md={4}>
+                          <div className={`info-perfil ml={2} ${theme}`}>
+                            <p>
+                              <b> {userData.following}</b>
+                              <br />
+                              Seguindo
+                            </p>
+                          </div>
+                        </Col>
+                      </Row>
+                      <p className={`update-perfil ${theme}`}>
+                        Perfil Atualizado:
+                        {Intl.DateTimeFormat("pt-br").format(
+                          new Date(userData.updated_at)
+                        )}
+                      </p>
 
-                     
-                        <Row>
-                          <Col md={4}>
-                            <div className="info-perfil">
-                              <p>
-                                <b>{userData.public_repos}</b>
-                                <br />
-                                Repositórios
-                              </p>
-                            </div>
-                          </Col>
-                          <Col md={4}>
-                            <div className="info-perfil">
-                              <p>
-                                <b> {userData.followers}</b>
-                                <br />
-                                Seguidores
-                              </p>
-                            </div>
-                          </Col>
-                          <Col md={4}>
-                            <div className="info-perfil ml={2}">
-                              <p>
-                                <b> {userData.following}</b>
-                                <br />
-                                Seguindo
-                              </p>
-                            </div>
-                          </Col>
-                        </Row>
-                        <p className="update-perfil">
-                          Perfil Atualizado:
-                          {Intl.DateTimeFormat("pt-br").format(
-                            new Date(userData.updated_at)
-                          )}
-                        </p>
-                       
+                    </div>
                   </div>
                 </div>
-                </div>
-              
               </Col>
 
               <Col className="colun-2" md={6}>
-                <div className="scroll">
+                <div className={`scroll ${theme}`}>
                   {repos.map((repo) => (
                     <button
                       style={{ height: 78 }}
-                      className="button-repo"
+                      className={`button-repo ${theme}`}
                       onClick={() => handleRepoClick(repo.id)}
                     >
                       {repo.name}
@@ -165,16 +167,16 @@ export function UserInfos() {
             if (repo.id === selectedRepo) {
               return (
                 <>
-                  <Container className="content-repos ">
+                  <Container className={`content-repos ${theme}`}>
                     <Row >
-                    <Col md={3}>
+                      <Col md={3}>
                         <div className="info-repo">
-                        <Button variant="dark" className="button-pdf">
-                        <PDFButton userData={userData} repos={repos} selectedRepo={selectedRepo} />
-                        </Button>
+                          <Button variant="dark" className="button-pdf">
+                            <PDFButton userData={userData} repos={repos} selectedRepo={selectedRepo} />
+                          </Button>
                         </div>
                       </Col>
-                    <Col md={3}>
+                      <Col md={3}>
                         <div className="info-repo ">
                           <Link
                             target="_blank"
@@ -187,15 +189,15 @@ export function UserInfos() {
                               width="19"
                               height="19"
                               fill="currentColor"
-                              class="bi bi-box-arrow-up-right"
+                              className="bi bi-box-arrow-up-right"
                               viewBox="0 0 16 16"
                             >
                               <path
-                                fill-rule="evenodd"
+                                fillRule="evenodd"
                                 d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"
                               />
                               <path
-                                fill-rule="evenodd"
+                                fillRule="evenodd"
                                 d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"
                               />
                             </svg>{" "}
@@ -205,61 +207,57 @@ export function UserInfos() {
                       </Col>
                       <Col md={3}>
                         <div className="info-repo">
-                        <h5 className="date-repo">
-                        {Intl.DateTimeFormat("pt-br").format(new Date(repo.created_at))}
-                        </h5>
+                          <h5 className="date-repo">
+                            {Intl.DateTimeFormat("pt-br").format(new Date(repo.created_at))}
+                          </h5>
                         </div>
                       </Col>
                       <Col md={3}>
-                        
-                          <ShareInfo owner={userName} repo={repo.name} />
-                        
+
+                        <ShareInfo owner={userName} repo={repo.name} />
+
                       </Col>
                     </Row>
                   </Container>
 
-                  <Container key={repo.id} className="content-infos mt-3">
+                  <Container key={repo.id} className={`content-infos mt-3 ${theme}`}>
                     <Row>
-                      <Col md={8} style={{padding:"0"}}>
-                        <div className="desc-repo">
-                          {repo.description ? (
-                            <p className="repo-desc">
+                      <Col md={8} style={{ padding: "0" }}>
+                        <div className={`desc-repo ${theme}`}>
+                          {repo.description ?(
+                            <p className={`repo-desc ${theme}`}>
                               Descrição: {repo.description}
                             </p>
                           ) : (
-                            <p className="repo-desc pt-2">
+                            <p className={`repo-desc pt-2 ${theme}`}>
                               Esse Repositório não contém descrição.
                             </p>
                           )}
                         </div>
                         <Col>
-                        <Row className="mb-3">
-                          <Col className="mt-3" >
-                          <GithubStars username={userName} repo={repo.name} />
-                          </Col>
-                          <Col className="mt-3" >
-                          <Forks dono={userName} repo={repo.name} />
-                          </Col>
-                          <Col className="mt-3" >
-                          
-                          <GithubBranches username={userName} repoName={repo.name} />   
-                          </Col>
-                        </Row>
-                         
+                          <Row className="mb-3">
+                            <Col className="mt-3" >
+                              <GithubStars username={userName} repo={repo.name} />
+                            </Col>
+                            <Col className="mt-3" >
+                              <Forks dono={userName} repo={repo.name} />
+                            </Col>
+                            <Col className="mt-3" >
+                              <GithubBranches username={userName} repoName={repo.name} />
+                            </Col>
+                          </Row>
                         </Col>
-                        <Col style={{padding:"0"}}>
-                        <InsightChart userName={userName} repo={repo.name} />
-                         
-                          </Col>
+                        <Col style={{ padding: "0" }}>
+                          <InsightChart userName={userName} repo={repo.name} />
+                        </Col>
                       </Col>
-                      <Col md={4} style={{padding:"0"}}>
-                        <GraphLanguage dono={userName} repo={repo.name} />
-                   
+                      <Col  md={4} style={{ padding: "0" }}>
+                        <GraphLanguage  dono={userName} repo={repo.name} />
                       </Col>
                     </Row>
                     <Row className="pt-3">
-                      <Col style={{padding:"0"}}>
-                      <ContributorsChart dono={userName} repo={repo.name} />
+                      <Col  style={{ padding: "0" }}>
+                        <ContributorsChart dono={userName} repo={repo.name} />
                       </Col>
                     </Row>
                     <Row>

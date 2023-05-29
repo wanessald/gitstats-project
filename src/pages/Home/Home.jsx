@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Form, Button, InputGroup, Modal, Container } from "react-bootstrap";
 import "./style-home.css";
 import axios from "axios";
+import ThemeToggle from "../../components/Botao/ThemeToggle";
 
 export function Home() {
   const [userName, setUserName] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [theme, setTheme] = useState('light');
 
   const handleUsernameSearch = (event) => {
     setUserName(event.target.value);
@@ -38,18 +40,26 @@ export function Home() {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   return (
     <main className="principal">
+        <header className="d-flex align-items-center">
+        <div style={{ position: "relative", left: "88rem"}}>
+          <ThemeToggle toggleTheme={toggleTheme} />
+        </div>
+      </header>
         <Container>
-          <div className="form">
+        <div className={`form ${theme}`}>
             <Form>
               <h1 style={{ fontFamily: "Karla" }}>GitStats</h1>
               <h2>
                 Pesquise por perfis e acompanhe as estatísticas de seus usuários
                 e repositórios de maneira regular.
               </h2>
-              <InputGroup className=" busca" style={{border:"none", borderRadius:"15px"}}>
+              <InputGroup className={`busca ${theme}`} style={{border:"none", borderRadius:"15px"}}>
                 <Form.Control
                   type="text"
                   className="input-name-user"
@@ -61,7 +71,6 @@ export function Home() {
                 <Button
                   variant="primary"
                   type="button"
-                  style={{ backgroundColor: "#fff", border:"none" }}
                   onClick={handleSearch}
                 >
                   <svg

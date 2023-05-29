@@ -1,16 +1,27 @@
-.graph-language{
+.dark .graph-language{
     height: 99%;
     width: 95%;
     border-radius: 15px;
     background-color: #1E1E1E;
     margin-left: 5%;
- 
+}
+.light .graph-language{
+    height: 99%;
+    width: 95%;
+    border-radius: 15px;
+    background-color: #9AA0A6;
+    margin-left: 5%;
 }
 
-.titulo-graph{
+.dark.titulo-graph{
     padding-top: 20%;
     text-align: center;
     color: aliceblue;
+}
+.light .titulo-graph{
+    padding-top: 20%;
+    text-align: center;
+    color: rgb(255, 255, 255);
 }
 
 .owner-graph{
