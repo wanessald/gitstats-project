@@ -1,10 +1,18 @@
-.contrib-graph{
+.dark .contrib-graph{
     background-color: #1e1e1e;
     padding: 2%;
     border-radius: 15px;
     margin-bottom: 2%;
     align-items: center;
 }
+.light .contrib-graph{
+    background-color: #9AA0A6;
+    padding: 2%;
+    border-radius: 15px;
+    margin-bottom: 2%;
+    align-items: center;
+}
+
 
 p{
     padding-top: 2% ;
