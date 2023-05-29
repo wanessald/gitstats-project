@@ -1,4 +1,4 @@
-// GraphLanguage.js
+// GraphLanguage
 
 import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -37,7 +37,6 @@ export const data = {
 
 export function GraphLanguage(parametros) {
   const [graphData, setGraphData] = useState(data);
-  const [theme] = useState("light");
 
   useEffect(() => {
     axios
@@ -51,8 +50,20 @@ export function GraphLanguage(parametros) {
             {
               label: "# of Votes",
               data: Object.values(response.data),
-              backgroundColor: getBackgroundColor(response.data),
-              borderColor: getBorderColor(response.data),
+              backgroundColor: [
+                "rgba(  0 , 0 , 255)",
+                "rgba( 255 , 0 , 255)",
+                "rgba( 255 , 255 , 0)",
+                " rgba( 255 , 128 , 0)",
+                " rgba(0 , 255 , 0)",
+              ],
+              borderColor: [
+                "rgba(  0 , 0 , 255)",
+                "rgba( 255 , 0 , 255)",
+                "rgba( 255 , 255 , 0)",
+                " rgba( 255 , 128 , 0)",
+                " rgba(0 , 255 , 0)",
+              ],
               borderWidth: 1,
             },
           ],
@@ -62,32 +73,14 @@ export function GraphLanguage(parametros) {
       .catch((error) => {
         console.log(error);
       });
-  });
-
-  const getBackgroundColor = (data) => {
-    if (theme === "light") {
-      return ["rgba(  0 , 0 , 255)", "rgba( 255 , 0 , 255)", "rgba( 255 , 255 , 0)", " rgba( 255 , 128 , 0)", " rgba(0 , 255 , 0)"];
-    } else if (theme === "dark") {
-      // Cores para o tema dark
-      return ["rgba( 255 , 0 , 0)", "rgba( 0 , 255 , 255)", "rgba( 255 , 255 , 255)", " rgba( 0 , 128 , 255)", " rgba(255 , 255 , 0)"];
-    }
-  };
-
-  const getBorderColor = (data) => {
-    if (theme === "light") {
-      return ["rgba(  0 , 0 , 255)", "rgba( 255 , 0 , 255)", "rgba( 255 , 255 , 0)", " rgba( 255 , 128 , 0)", " rgba(0 , 255 , 0)"];
-    } else if (theme === "dark") {
-      // Cores para o tema dark
-      return ["rgba( 255 , 0 , 0)", "rgba( 0 , 255 , 255)", "rgba( 255 , 255 , 255)", " rgba( 0 , 128 , 255)", " rgba(255 , 255 , 0)"];
-    }
-  };
-
+  }, [parametros.dono, parametros.repo]);
   return (
-    <div className={`graph-language ${theme}`}>
-      <h4 className={`titulo-graph ${theme}`}>Linguagem mais usada</h4>
-      <h6 className={`sub-graph ${theme}`}>{parametros.repo}</h6>
+<div className="graph-language">
+      <h4 className="titulo-graph">Linguagem mais usada</h4>
+      <h6 className="sub-graph"> {parametros.repo}</h6>
       <br /> <br />
       <Doughnut className="Doughnut" data={graphData} />
+      
     </div>
   );
 }
